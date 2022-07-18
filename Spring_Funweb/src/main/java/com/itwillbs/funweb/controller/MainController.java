@@ -41,6 +41,7 @@ public class MainController {
 		return "member/login";
 	}
 	
+	// 로그인
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(@ModelAttribute MemberVO member, Model model, HttpSession session) {
 		
@@ -53,6 +54,14 @@ public class MainController {
 		
 		
 		return "";
+	}
+	
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.getAttribute("sId");
+		session.invalidate();
+		return "redirect:/";
+		
 	}
 
 
